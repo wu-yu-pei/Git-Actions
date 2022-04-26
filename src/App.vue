@@ -1,12 +1,24 @@
 <script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import { ref, shallowRef } from 'vue';
+
+let person = ref({ name: 'wuyupei' });
+
+let obj = shallowRef({ name: 'liuxu', p: { name: 'p' } });
+
+console.log(person, obj);
+console.log(person.value, obj.value);
+
+setTimeout(() => {
+  console.log(person);
+}, 1000);
+
+console.log('okok');
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <div>{{ person.name }}</div>
+  <div>{{ obj.name }}</div>
+  <div>{{ obj.p.name }}</div>
 </template>
 
 <style>
